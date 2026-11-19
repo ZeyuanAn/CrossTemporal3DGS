@@ -95,7 +95,7 @@
 
 Cross-Temporal 3DGS 使用两个阶段进行跨时间场景更新：
 
-- **BU（before update）**：从场景的 `points3D.ply` 初始化模型，使用旧时刻 `t0` 与新时刻 `t1` 的训练视角训练，并生成逐图 `label/`。
+- **BU（before update）**：从场景的 `points3D.ply` 初始化模型，使用旧时刻 `t0` 与新时刻 `t1` 的训练视角训练及扰动，并生成逐图 `label/`。
 - **DA（during adaptation）**：重新从场景 `points3D.ply` 初始化模型，读取 BU 标签进行训练，并迭代更新旧视角监督掩码。DA 不从 BU 模型继续训练。
 - 新视角使用全图监督；掩码更新作用于旧视角。掩码值 `1`（PNG 白色）表示参与监督，值 `0`（PNG 黑色）表示暂不监督。更新只会保留或增加监督区域，不会减少。
 - `--initial-mask-method` 选择 BU 标签生成方法：`evidence`、`pixel` 或 `block`。`--mask-method` 选择 DA 掩码更新方法：`pixel` 或 `block`。`evidence` 需另行准备 EfficientSAM 权重；`pixel` 不需要。

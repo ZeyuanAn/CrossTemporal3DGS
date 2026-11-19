@@ -1,0 +1,20 @@
+name: cross_temporal_3dgs
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7.13
+  - pytorch=1.13.1
+  - torchvision=0.14.1
+  - pytorch-cuda=11.7
+  - numpy=1.21.6
+  - scipy=1.7.3
+  - pillow=9.5.0
+  - plyfile=0.8.1
+  - tqdm=4.67.1
+  - pip
+  - pip:
+      - pytorch-msssim==1.0.0
+      - lpips==0.1.4

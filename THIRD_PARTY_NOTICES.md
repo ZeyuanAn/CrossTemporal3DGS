@@ -1,0 +1,30 @@
+# Third-party notices and provenance
+
+Entries below summarize the provenance and license evidence present in this tree. **待核实** marks missing source or licensing records.
+
+## Project code
+
+- **Inherited Gaussian-Splatting code** — The root [`LICENSE.md`](LICENSE.md) names Inria and the Max Planck Institute for Informatik (MPII), and describes research and evaluation use with non-commercial restrictions and redistribution conditions. Headers in project files identify the GRAPHDECO research group and 2023 Inria copyright. The precise provenance and license coverage of later candidate-specific changes are not separately recorded here.
+
+## Included components
+
+| Component | Evidence in this tree | License/source status |
+| --- | --- | --- |
+| `diff-gaussian-rasterization` | Present under `submodules/diff-gaussian-rasterization/`. Its README identifies it as the differential Gaussian rasterization engine and includes the 2023 Gaussian Splatting citation. `setup.py` and source headers identify Inria/GRAPHDECO and 2023. | Its `LICENSE.md` contains the same Gaussian-Splatting license text as the root. This is the license file present in the candidate; exact upstream revision/source and whether it captures all applicable terms are **待核实**. |
+| `simple-knn` | Present under `submodules/simple-knn/`. `setup.py` names the extension `simple_knn`; setup and source headers identify Inria/GRAPHDECO and 2023. `scene/gaussian_model.py` imports `distCUDA2` from it. The [original Gaussian-Splatting `.gitmodules`](https://github.com/graphdeco-inria/gaussian-splatting/blob/main/.gitmodules) points to [the upstream simple-knn repository](https://gitlab.inria.fr/bkerbl/simple-knn.git). | No separate license file or explicit license grant was found in this component directory. The exact revision and acquisition of the local files, and the applicable license and redistribution terms, are **待核实**; the upstream link does not establish them. |
+| GLM | Vendored under `submodules/diff-gaussian-rasterization/third_party/glm/`; the rasterizer build configuration adds this directory as an include path. | `copying.txt` says GLM is licensed under either The Happy Bunny License (Modified MIT License) or MIT License, and contains both texts with copyright attributed to G-Truc Creation (2005). The vendored GLM version/source and the scope of files covered by this notice are **待核实**. |
+| Local `lpipsPyTorch` package | Python implementation is present in `lpipsPyTorch/`; `metrics.py` imports it and calls `lpips(..., net_type='vgg')`. The code documents LPIPS version `0.1`. | No package license, origin, or upstream revision is recorded in the package files found here. Its source provenance and applicable license/redistribution terms are **待核实**. The documented LPIPS API version does not establish the package release version. |
+| EfficientSAM source | The seven Python files in `third_party/updategs_mask_reference/efficient_sam/` match the text of [yformer/EfficientSAM commit `d525f622e6f640acf5a0fc37c7ca1f243da5bde0`](https://github.com/yformer/EfficientSAM/tree/d525f622e6f640acf5a0fc37c7ca1f243da5bde0/efficient_sam). Several files carry the [Meta Platforms, Inc. and affiliates copyright notice](https://github.com/yformer/EfficientSAM/blob/d525f622e6f640acf5a0fc37c7ca1f243da5bde0/efficient_sam/efficient_sam.py). | The official commit's [root LICENSE](https://github.com/yformer/EfficientSAM/blob/d525f622e6f640acf5a0fc37c7ca1f243da5bde0/LICENSE) is Apache License 2.0; its exact text is included at [`efficient_sam/LICENSE`](third_party/updategs_mask_reference/efficient_sam/LICENSE). The local copies came through the user's remote environment, and their original acquisition chain is unknown. See the qualifications below. |
+| UpdateGS mask-reference modules | A selected source port is included under `third_party/updategs_mask_reference/`; its [`SOURCE_NOTES.md`](third_party/updategs_mask_reference/SOURCE_NOTES.md) describes the supplied handoff manifest and the limits of the source record. | Their upstream provenance and applicable licenses remain **待核实** separately from the EfficientSAM text comparison. |
+
+The EfficientSAM [`mlp.py`](https://github.com/yformer/EfficientSAM/blob/d525f622e6f640acf5a0fc37c7ca1f243da5bde0/efficient_sam/mlp.py) references a [MaskFormer source file](https://github.com/facebookresearch/MaskFormer/blob/main/mask_former/modeling/transformer/transformer_predictor.py); the referenced revision, provenance and applicable terms remain **待核实**. EfficientSAM checkpoint weights are external and user-supplied; their source and license have not been compared or verified. No checkpoint is included here. Identifying the EfficientSAM license does not establish that the entire project may be publicly distributed.
+
+## Separately installed evaluation dependency
+
+- **`lpips` Python package** — `environment.yml` pins `lpips==0.1.4`. `evaluate_holdout.py` imports `lpips` and constructs `lpips.LPIPS(net='alex', ...)`, so held-out evaluation depends on this installed package. The environment file establishes the requested package version, not the resolved artifact, its source, or its license. Those details and any applicable redistribution terms are **待核实**. The local `lpipsPyTorch` implementation used by `metrics.py` is a separate code path.
+
+## Other dependencies and remaining records
+
+`environment.yml` also lists Python, PyTorch, torchvision, NumPy, SciPy 1.7.3, Pillow, plyfile, tqdm, pytorch-msssim, and the two locally built CUDA extensions. SciPy 1.7.3 is included for the evidence-mask path and is compatible with the specified Python 3.7 environment; it does not change the PyTorch pin. This file records version constraints for some packages, but is not a complete lockfile or license inventory. Their exact resolved sources and versions, and the license terms applicable to any redistributed package or artifact, are **待核实**. No versions are stated here beyond the values explicitly pinned in `environment.yml`.
+
+For components marked **待核实**, the source, version, notice coverage, or applicable redistribution terms are not established by the records in this tree.

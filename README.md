@@ -40,7 +40,7 @@
   <a href="assets/showcase/tower_old_vs_updated.mp4"><img src="assets/showcase/tower_preview.gif" alt="Tower：旧时刻图像训练与场景更新效果，同一相机轨迹" width="100%"></a>
 </p>
 
-点击预览可打开[完整对比视频](assets/showcase/tower_old_vs_updated.mp4)。左侧为仅用旧时刻图像训练的场景，右侧为更新后的场景；两者沿同一轨迹展示。
+点击预览可打开[完整对比视频](assets/showcase/tower_old_vs_updated.mp4)。左侧为仅用旧时刻图像训练的场景，右侧为8张新图像更新后的场景；两者沿同一轨迹展示。
 
 <details>
 <summary>Tower：三个视角的旧视角掩码演进</summary>

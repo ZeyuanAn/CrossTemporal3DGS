@@ -46,7 +46,7 @@ Mask and label value **1** (white, 255 in PNG) is supervised; **0** is currently
   <a href="assets/showcase/tower_old_vs_updated.mp4"><img src="assets/showcase/tower_preview.gif" alt="Tower: old scene and updated scene along the same camera trajectory" width="100%"></a>
 </p>
 
-Click the preview to open the [full comparison video](assets/showcase/tower_old_vs_updated.mp4). The left shows the scene trained only on old-time images; the right shows the updated scene along the same camera trajectory.
+Click the preview to open the [full comparison video](assets/showcase/tower_old_vs_updated.mp4). The left shows the scene trained only on old-time images; the right shows the 8-views updated scene along the same camera trajectory.
 
 <details>
 <summary>Tower: mask evolution for three old-scene viewpoints</summary>
